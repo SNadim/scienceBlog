@@ -42,7 +42,7 @@ export default function Write() {
                     headers:{
                         'content-type': 'multipart/form-data'
                     }
-                }).then(res=>{console.log(data.get('title'),data.get('desc'),data.get('author'),data.get('cat'),data.get('catId'));/*window.location.replace("/");*/})
+                }).then(res=>{window.location.replace("/")})
             } catch (error) {
                 console.log(error);
                 
@@ -105,7 +105,7 @@ export default function Write() {
                  <option disabled>Select your Category</option>
                 {
                   cats.map(c=>(
-                    <option value={c.name}>{c.name}</option>
+                    <option key={c.id} value={c.name}>{c.name}</option>
                     
                   ))
                 }   

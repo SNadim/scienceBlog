@@ -12,7 +12,6 @@ export default function TopBar() {
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
   const { user, dispatch } = useContext(Context);
- // const [searchTerm, setSearchTerm] = useState("");
   const [JSONDATA, setJSONDATA]=useState([]);
 
   useEffect(()=>{
@@ -82,18 +81,6 @@ export default function TopBar() {
             <SearchBar placeholder="Enter title..." data={JSONDATA}/>
             <Toggle />
           </div>
-        
-        
-          {/* <input
-           id="search" 
-           type="text" 
-           className="topSearchIcon"
-           placeholder='Search..' 
-           onChange={(event) => {setSearchTerm(event.target.value)}}
-           />
-           <label>
-            <i className="topSearchIcon fas fa-search" style={{cursor: "pointer"}} ></i>
-          </label> */}
       </div>
 
       

@@ -26,13 +26,16 @@ export default function SinglePost() {
   },[path])
 
   const handleDelete = async ()=>{
+    let formData = new FormData();
+        formData.append('image', post.image);
     if(window.confirm("Are you sure want to delete?")) {
       await axios({
           method: 'post',
-          url: 'http://localhost/CRUD/blog.php?delete=' + path
+          url: 'http://localhost/CRUD/blog.php?delete=' + path,
+          data: formData,
+          config: { headers: { 'Content-Type': 'multipart/form-data' } }
       })
       .then((response)=>{
-          console.log(response);
           if(response.status === 200) {
             window.location.replace("/");
           }

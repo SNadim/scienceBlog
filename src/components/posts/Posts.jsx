@@ -7,7 +7,7 @@ export default function Posts({ posts }) {
     <div className='postComp'>
      {
        posts.slice(0).reverse().map((p)=>(
-         <Post post={p}/>
+         <Post key={p.id} post={p}/>
        ))
      }
     </div>

@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { useState } from 'react/cjs/react.development';
 import Sidebar from '../../components/sidebar/Sidebar';
 import { Context } from '../../context/Context';
+import { ThemeContext } from '../../context/themeContext';
 import './settings.css';
 
 export default function Settings() {
@@ -13,6 +14,8 @@ export default function Settings() {
     const [password, setPassword] = useState(user.password);
     const [description,setDescription] = useState(user.description);
     const [success, setSuccess] = useState(false);
+    const theme = useContext(ThemeContext);
+    const darkMode = theme.state.darkMode;
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
@@ -33,7 +36,7 @@ export default function Settings() {
                 }).then(res=>{
                     setSuccess(true);
                     const pic = res.data.url.split("/")[6];
-                    console.log(res);
+                    console.log(pic);
                     const response = {
                         id: user.id,
                         username: username,
@@ -78,24 +81,28 @@ export default function Settings() {
               </div>
               <label>Username</label>
               <input 
-              type="text" 
+              type="text"
+              style={{backgroundColor:darkMode ? "#222" : "white", color: darkMode ? 'white' : "black"}} 
               placeholder={user.username}
               onChange={e=>setUsername(e.target.value)} 
               />
               <label>Email</label>
               <input 
-                type="email" 
+                type="email"
+                style={{backgroundColor:darkMode ? "#222" : "white", color: darkMode ? 'white' : "black"}} 
                 placeholder={user.email}
                 onChange={e=>setEmail(e.target.value)} 
                 />
               <label>Password</label>
               <input 
                     type="password"
+                    style={{backgroundColor:darkMode ? "#222" : "white", color: darkMode ? 'white' : "black"}}
                     onChange={e=>setPassword(e.target.value)}
                     />
                 <label>Description</label>
               <input 
                     type="text"
+                    style={{backgroundColor:darkMode ? "#222" : "white", color: darkMode ? 'white' : "black"}}
                     placeholder={description}
                     onChange={e=>setDescription(e.target.value)}
                     />

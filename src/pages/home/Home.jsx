@@ -16,6 +16,7 @@ export default function Home() {
       const url = 'http://localhost/CRUD/blog.php'+search;
       axios.get(url).then(response => response.data)
       .then((data) => {
+        console.log(search);
         setPosts(data);
       })
     }

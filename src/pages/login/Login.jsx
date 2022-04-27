@@ -49,7 +49,7 @@ export default function Login() {
           <input
            type="text"
            className='loginInput' 
-           placeholder='Enter you username...'
+           placeholder='Enter your username...'
            ref={userRef}
            />
           <label>Password</label>

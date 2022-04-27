@@ -1,5 +1,6 @@
 .write{
     padding-top: 50px;
+    height: 100vh;
 }
 .writeImg{
     margin-left: 150px;
@@ -36,7 +37,7 @@
     font-size: 30px;
     border: none;
     padding: 20px;
-    width: 700vw;
+    width: 600vw;
 }
 
 .writeInput:focus{
@@ -44,13 +45,15 @@
 }
 .writeText{
     font-size: 20px;
-    height: 100vh;
+    height: 50vh;
 }
 
+.tags{
+    margin: 20px 0px 0px 150px;
+    
+}
 .writeSubmit{
-    position: absolute;
-    top: 100px;
-    right: 50px;
+    margin: 20px 0px 0px 150px;
     color: white;
     background-color: teal;
     padding: 10px;
@@ -60,11 +63,6 @@
     font-size: 16px;
 }
 
-.tags{
-    position: absolute;
-    top: 20px;
-    right: 50px;
-}
 select {
     appearance: none;
     outline: 0;

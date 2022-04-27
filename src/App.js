@@ -10,6 +10,9 @@ import { useContext } from "react";
 import { Context } from "./context/Context";
 import Toggle from "./components/toggle/Toggle";
 import { ThemeContext } from './context/themeContext';
+import NotFound from "./pages/notFound/NotFound";
+import Contact from "./pages/contact/Contact";
+import About from "./pages/about/About";
 
 function App() {
   const theme = useContext(ThemeContext);
@@ -26,6 +29,10 @@ function App() {
         <Route exact path="/write" element={user ? <Write /> : <Register/>} />
         <Route exact path="/settings" element={user ? <Settings /> : <Register />} />
         <Route exact path="/post/:postId" element={<Single />} />
+        <Route exact path="/post/:postId" element={<Single />} />
+        <Route exact path="/contact" element={<Contact />}/>
+        <Route exact path="/about" element={<About />}/>
+        <Route exact path="*" element={<NotFound />} />
       </Routes>
       </div>
     </Router>

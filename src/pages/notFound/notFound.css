@@ -1,0 +1,31 @@
+.container{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    font-family: "sans-serif";
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.container h1{
+    font-size: 100px;
+    margin: 0;
+    letter-spacing: 20px;
+    font-weight: 1000;
+}
+
+.container a{
+    text-decoration: none;
+    background-color: gray;
+    color: aliceblue;
+    padding: 12px 24px;
+    display: inline-block;
+    border-radius: 25px ;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: 0.4s;
+}
+
+.container a :hover{
+    background-color: blanchedalmond;
+}

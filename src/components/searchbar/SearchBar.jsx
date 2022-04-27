@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../context/themeContext";
 import "./searchBar.css";
 
 function SearchBar({ placeholder, data }) {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
   const [visible, setVisible] = useState("hidden");
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
 
   const handleFilter = (event) => {
     const searchWord = event.target.value;
@@ -35,11 +38,12 @@ function SearchBar({ placeholder, data }) {
       <div className="searchInputs">
         <input
           type="text"
+          style={{backgroundColor:darkMode ? "#222" : "white", color: darkMode ? 'white' : "black"}}
           placeholder={placeholder}
           value={wordEntered}  
           onChange={handleFilter}
         />
-        <div className="searchIcon">
+        <div className="searchIcon" style={{backgroundColor:darkMode ? "#222" : "white", color: darkMode ? 'white' : "black"}}>
           {
             wordEntered === '' ? (
               <i className="fas fa-search" style={{cursor: "pointer"}} ></i>
@@ -54,8 +58,8 @@ function SearchBar({ placeholder, data }) {
       <div className="dataResult" style={{visibility:visible}}>
       {filteredData.slice(0, 15).map((value, key) => {
         return (
-          <div className="dataItem"> 
-          <Link to="/" className="link item"><p>{value.title} </p></Link> 
+          <div className="dataItem" key={key}> 
+          <Link to={`/post/${value.id}`} className="link item"><p>{value.title} </p></Link> 
           </div>  
         );
       })}
